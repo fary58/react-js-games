@@ -32,6 +32,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 15px;
+  flex-direction: column;
 }
 .trafficLight {
   background-color: black;
@@ -43,6 +44,7 @@
   align-items: center;
   padding: 10px 5px;
   border-radius: 10px;
+  margin: 10px;
 }
 .trafficLight span {
   width: 45px;
