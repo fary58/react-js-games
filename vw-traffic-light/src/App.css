@@ -27,6 +27,32 @@
 .App-link {
   color: #61dafb;
 }
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+.trafficLight {
+  background-color: black;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5px;
+  border-radius: 10px;
+}
+.trafficLight span {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  background-color: gray;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
 
 @keyframes App-logo-spin {
   from {
@@ -35,4 +61,5 @@
   to {
     transform: rotate(360deg);
   }
+
 }

@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Button from 'react-bootstrap/Button';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <h3>Volkswagen Project</h3>
+      <div className="main">
+        <div className="trafficLight">
+          <span className="red"></span>
+          <span className="yellow"></span>
+          <span className="green"></span>
+        </div>
+        <Button
+          style={{
+            backgroundColor: isActive ? "red" : "",
+            color: isActive ? "white" : "",
+          }}
+          onClick={handleClick}
         >
-          Learn React
-        </a>
-      </header>
+          {" "}
+          Test{" "}
+        </Button>
+      </div>
     </div>
   );
 }
