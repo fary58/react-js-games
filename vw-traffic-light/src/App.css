@@ -1,67 +1,39 @@
 .App {
   text-align: center;
+  margin-top: 50px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.traffic-light {
+  width: 100px;
+  background: #333;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 15px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-.main{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 15px;
-  flex-direction: column;
-}
-.trafficLight {
-  background-color: black;
-  width: 150px;
-  height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 5px;
-  border-radius: 10px;
-  margin: 10px;
-}
-.trafficLight span {
-  width: 45px;
-  height: 45px;
-  border-radius: 100%;
-  background-color: gray;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+.light {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #111;
+  margin: auto;
+  transition: background-color 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.light.red.on {
+  background: red;
+}
+.light.yellow.on {
+  background: yellow;
+}
+.light.green.on {
+  background: green;
+}
 
+button {
+  padding: 10px 20px;
+  font-size: 16px;
 }
