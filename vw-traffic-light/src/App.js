@@ -6,7 +6,7 @@ function App() {
 
   useEffect(() => {
     let timeoutId;
-    console.log(timeoutId);
+    console.log("sss");
 
     const cycleLights = () => {
       switch (currentLight) {
