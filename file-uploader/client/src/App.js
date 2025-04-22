@@ -7,13 +7,27 @@ function App() {
   const [image, setImage] = useState(null);
 
   const photoChanged = (e) => {
-    
-    if (e.target.files && e.target.files[0]) {
+    if (e.target.files && e.target.files[0] ) {
       const objectUrl = URL.createObjectURL(e.target.files[0]);
-      console.log(objectUrl);     
-      setImage(objectUrl)
+      console.log(objectUrl);
+      setImage({
+        file : e.target.files[0],
+        view : objectUrl
+      });
     }
   };
+
+  const publishImage = async () => {
+    const formData = new FormData();
+    formData.append("image", image.file);
+
+    const response = await fetch("http://localhost:8080/api/image/upload", {
+      method: "POST",
+      body: formData,
+    });
+    console.log(response)
+  };
+
   return (
     <div className="App">
       <h3>Image Uploader</h3>
@@ -31,13 +45,14 @@ function App() {
           onChange={(e) => photoChanged(e)}
         />
       </div>
-      {image &&
-        (alert("INNN"),
-        (
-          <div className="previewImage">
-            <img src={image} alt="" />
-          </div>
-        ))}
+      {image && (
+        <div className="previewImage">
+          <img className="my-img" src={image.view} alt="" />
+        </div>
+      )}
+      <Button variant="info" onClick={() => publishImage()}>
+        Publish
+      </Button>
     </div>
   );
 }
