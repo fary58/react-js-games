@@ -7,12 +7,12 @@ function App() {
   const [image, setImage] = useState(null);
 
   const photoChanged = (e) => {
-    if (e.target.files && e.target.files[0] ) {
+    if (e.target.files && e.target.files[0]) {
       const objectUrl = URL.createObjectURL(e.target.files[0]);
       console.log(objectUrl);
       setImage({
-        file : e.target.files[0],
-        view : objectUrl
+        file: e.target.files[0],
+        view: objectUrl,
       });
     }
   };
@@ -25,7 +25,7 @@ function App() {
       method: "POST",
       body: formData,
     });
-    console.log(response)
+    console.log(response);
   };
 
   return (
