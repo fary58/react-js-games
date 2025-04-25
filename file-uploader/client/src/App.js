@@ -7,25 +7,38 @@ function App() {
   const [image, setImage] = useState(null);
 
   const photoChanged = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      const objectUrl = URL.createObjectURL(e.target.files[0]);
-      console.log(objectUrl);
-      setImage({
-        file: e.target.files[0],
-        view: objectUrl,
-      });
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+  
+      reader.onloadend = () => {
+        const base64String = reader.result;
+        const objectUrl = URL.createObjectURL(file);
+  
+        setImage({
+          file,
+          view: objectUrl,
+          base64String,
+        });
+      };
+  
+      reader.readAsDataURL(file); // this reads the file as base64
     }
   };
+
 
   const publishImage = async () => {
     const formData = new FormData();
     formData.append("image", image.file);
-
-    const response = await fetch("http://localhost:8080/api/image/upload", {
+  
+    const response = await fetch("http://localhost:8080/image/upload", {
       method: "POST",
       body: formData,
     });
-    console.log(response);
+  
+    const data = await response.json();
+    console.log('Image uploaded:', data);
+
   };
 
   return (
